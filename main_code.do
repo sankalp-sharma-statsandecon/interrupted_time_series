@@ -31,30 +31,7 @@ foreach i in adherence_ratio adhere_days {
 	reg `i' time_trend switch c.time_trend#switch, vce(robust)
 	}
 
-reg adherence_ratio time_trend switch c.time_trend#switch, vce(robust)
-reg adhere_days time_trend switch c.time_trend#switch, vce(robust)
-
-
-logit full_adherence group_id switch_date c.group_id#switch_date, or
-logit adherence_ratio group_id switch_date c.group_id#switch_date
-glm adherence_ratio group_id switch_date c.group_id#switch_date, link(logit) family(binomial) robust nolog
-poisson adhere_days group_id switch_date c.group_id#switch_date, vce(robust)
-xtpoisson missing_days group_id switch_date c.group_id#switch_date, fe
-xtpoisson total_days group_id switch_date c.group_id#switch_date, fe
-
-xtreg adherence_ratio group_id switch_date c.group_id#c.switch_date, fe
-margins switch_date, at(group_id = 13)
-margins, dydx
-
-
-*Model regular
-foreach i in adherence_ratio adhere_days missing_days{
-	reg `i' group_id switch_date group_id#switch_date, cluster(id)
-	}
-cd "/Users/sankalp88/OneDrive - Kent State University/BC public service 75962/Data"
-save main, replace
-
+*Create plot
 use main, clear
 collapse (mean) full_adherence (mean) adherence_ratio (mean) adhere_days, by (id switch_date)
-
 twoway (scatter adherence_ratio i_date in 1/1000, sort mlabel(switch_date) msize(vtiny))
