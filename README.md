@@ -14,6 +14,6 @@ Excel workbook (Interrupted time series.xlsx) contains two sheets. The sheet lab
 8. MISSING_DAYS: TOTAL_DAYS – ADHERE_DAYS
 
 The sheet labeled ‘switch date’ contains 
-9. ID: Patient ID
-10. G START: The year and month the patient switched to plan G. All prior observations can be assumed to be from Plan I (Fair PharmaCare).
+1. ID: Patient ID
+2. G START: The year and month the patient switched to plan G. All prior observations can be assumed to be from Plan I (Fair PharmaCare).
 
