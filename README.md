@@ -1,5 +1,5 @@
 # interrupted_time_series
-Testing the role of a new drug on patients' adherence to psychiatric medications
+**Testing the role of a new drug on patients' adherence to psychiatric medications**
 
 Plan G is a PharmaCare plan that provides free access to select psychiatric and opioid agonist medications. You have been asked to test the effect that Plan G has on patient outcomes. One of the effects we’d expect from Plan G is that it will improve adherence to medication regimes (if cost is a barrier to accessing medications then removing this barrier should improve adherence). 
 
